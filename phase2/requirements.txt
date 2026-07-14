@@ -1,0 +1,12 @@
+# Legitimate packages — should pass clean
+requests==2.31.0
+flask==3.0.2
+pandas==2.2.1
+
+# Typosquatting attempts — should be flagged
+numppy==1.0.0
+requets==2.30.0
+lod4sh==4.17.21
+djano==4.2.0
+tenskorflow2
+scippy

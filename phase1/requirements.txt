@@ -1,0 +1,8 @@
+# Sample packages to test our scanner
+requests==2.31.0
+flask==3.0.2
+numpy==1.26.4
+boto3
+django==99.99.99
+lod4sh==1.0.0
+pandas==99.0.0
