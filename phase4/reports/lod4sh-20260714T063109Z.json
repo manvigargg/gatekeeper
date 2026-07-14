@@ -1,0 +1,14 @@
+{
+  "package": "lod4sh",
+  "scanned_at": "2026-07-14T06:31:09.169399+00:00",
+  "install_success": false,
+  "risk_score": 0,
+  "severity": "CLEAN",
+  "build_action": "PASS",
+  "findings": [],
+  "raw_counts": {
+    "network_calls": 0,
+    "file_accesses": 0,
+    "subprocess_calls": 0
+  }
+}

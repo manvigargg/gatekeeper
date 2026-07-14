@@ -1,0 +1,220 @@
+{
+  "package": "requests",
+  "scanned_at": "2026-07-14T06:24:42.590822Z",
+  "install_success": true,
+  "risk_score": 100,
+  "severity": "CRITICAL",
+  "build_action": "BLOCK",
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 192.168.65.7:53"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.192.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.0.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.64.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.128.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.192.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 192.168.65.7:53"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.64.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.192.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.0.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.128.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.64.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.192.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.0.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.128.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.64.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 192.168.65.7:53"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.192.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.0.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.64.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.128.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 151.101.192.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "sensitive_file_access",
+      "description": "Accessed sensitive path containing 'token'"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /usr/local/bin/lsb_release"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /usr/local/sbin/lsb_release"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /usr/local/bin/lsb_release"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /usr/sbin/lsb_release"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /sbin/lsb_release"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /bin/lsb_release"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /usr/local/bin/uname"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /usr/local/sbin/uname"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /usr/local/bin/uname"
+    },
+    {
+      "severity": "HIGH",
+      "category": "subprocess_execution",
+      "description": "Spawned external process: /usr/sbin/uname"
+    }
+  ],
+  "raw_counts": {
+    "network_calls": 22,
+    "file_accesses": 9,
+    "subprocess_calls": 10
+  }
+}
