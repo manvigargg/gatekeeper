@@ -1,0 +1,3 @@
+requests==2.31.0
+flask==3.0.2
+numppy==1.0.0
