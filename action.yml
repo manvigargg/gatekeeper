@@ -52,7 +52,7 @@ runs:
         GATEKEEPER_SKIP_SANDBOX: ${{ inputs.skip-sandbox }}
 
     - name: Upload report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: gatekeeper-security-report
