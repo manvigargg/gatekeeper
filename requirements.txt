@@ -1,0 +1,7 @@
+# GateKeeper's own dependencies
+# This file is scanned by the Action on every push — dogfooding
+
+requests==2.31.0
+flask==3.0.2
+pytest==7.4.0
+black==23.12.0

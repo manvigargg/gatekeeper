@@ -1,0 +1,59 @@
+name: 'GateKeeper'
+description: 'Supply chain attack detector — scans Python dependencies for typosquatting, malicious install scripts, and suspicious metadata'
+author: 'Swan'
+
+branding:
+  icon: 'shield'
+  color: 'red'
+
+inputs:
+  requirements-file:
+    description: 'Path to requirements.txt file to scan'
+    required: false
+    default: 'requirements.txt'
+  fail-on-severity:
+    description: 'Minimum severity to fail the build (CRITICAL, HIGH, MEDIUM)'
+    required: false
+    default: 'CRITICAL'
+  skip-sandbox:
+    description: 'Skip Docker sandbox analysis (faster but less thorough)'
+    required: false
+    default: 'true'
+
+outputs:
+  risk-score:
+    description: 'Highest risk score found across all packages'
+  findings-count:
+    description: 'Total number of findings across all packages'
+  report-path:
+    description: 'Path to the generated JSON report'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install GateKeeper dependencies
+      shell: bash
+      run: |
+        pip install requests
+
+    - name: Run GateKeeper scan
+      shell: bash
+      run: |
+        python ${{ github.action_path }}/phase5/gatekeeper.py \
+          --file ${{ inputs.requirements-file }} \
+          --output-json gatekeeper-report.json
+      env:
+        GATEKEEPER_FAIL_ON: ${{ inputs.fail-on-severity }}
+        GATEKEEPER_SKIP_SANDBOX: ${{ inputs.skip-sandbox }}
+
+    - name: Upload report
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: gatekeeper-security-report
+        path: gatekeeper-report.json

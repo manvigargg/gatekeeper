@@ -361,8 +361,12 @@ def main():
         "--file", "-f",
         help="Path to requirements.txt"
     )
+    parser.add_argument(
+        "--output-json",
+        help="Save report to this JSON file path",
+        default=None
+    )
     args = parser.parse_args()
-
     # Build package list
     if args.file:
         packages = parse_requirements(args.file)
@@ -401,8 +405,27 @@ def main():
               f"score: {r['combined_score']:>3}/100  "
               f"→ {r['build_action']}{RESET}")
 
-    report_file = save_report(results)
-    print(f"\n  {CYAN}Full report saved: {report_file}{RESET}")
+    # Save to custom path if specified (used by GitHub Actions)
+    if args.output_json:
+        report_data = {
+            "tool":       "GateKeeper",
+            "version":    "0.5.0",
+            "scanned_at": datetime.now(timezone.utc).isoformat(),
+            "results":    results,
+            "summary": {
+                "total":    len(results),
+                "clean":    sum(1 for r in results if r["severity"] == "CLEAN"),
+                "medium":   sum(1 for r in results if r["severity"] == "MEDIUM"),
+                "high":     sum(1 for r in results if r["severity"] == "HIGH"),
+                "critical": sum(1 for r in results if r["severity"] == "CRITICAL"),
+            }
+        }
+        with open(args.output_json, "w") as f:
+            json.dump(report_data, f, indent=2)
+        print(f"\n  {CYAN}Report saved: {args.output_json}{RESET}")
+    else:
+        report_file = save_report(results)
+        print(f"\n  {CYAN}Full report saved: {report_file}{RESET}")
 
     if block_build:
         print(f"\n{RED}{BOLD}  ⚠  BUILD BLOCKED — CRITICAL findings detected{RESET}\n")

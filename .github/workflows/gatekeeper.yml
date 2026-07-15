@@ -1,0 +1,50 @@
+name: GateKeeper Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'requirements*.txt'   # Only runs when dependencies change
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    name: Supply Chain Security Scan
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run GateKeeper
+        uses: manvigargg/gatekeeper@main
+        with:
+          requirements-file: 'requirements.txt'
+          fail-on-severity: 'CRITICAL'
+          skip-sandbox: 'true'
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            if (!fs.existsSync('gatekeeper-report.json')) return;
+            const report = JSON.parse(fs.readFileSync('gatekeeper-report.json'));
+            const summary = report.summary;
+            const body = `## 🔒 GateKeeper Security Scan
+            | Status | Count |
+            |--------|-------|
+            | ✅ Clean | ${summary.clean} |
+            | ⚠️ Medium | ${summary.medium} |
+            | 🔴 High | ${summary.high} |
+            | 🚨 Critical | ${summary.critical} |
+            
+            ${summary.critical > 0 ? '**Build blocked — critical findings detected.**' : '**All packages passed security scan.**'}`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
