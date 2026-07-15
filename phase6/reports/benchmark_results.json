@@ -1,0 +1,322 @@
+{
+  "tool": "GateKeeper",
+  "benchmark": "backstabber-knife-collection",
+  "detection_rate": 95.0,
+  "false_positive_rate": 0.0,
+  "caught": 19,
+  "total_malicious": 20,
+  "false_positives": 0,
+  "total_clean": 15,
+  "by_attack_type": {
+    "typosquatting": {
+      "total": 10,
+      "caught": 10
+    },
+    "dependency_confusion": {
+      "total": 2,
+      "caught": 1
+    },
+    "credential_theft": {
+      "total": 2,
+      "caught": 2
+    },
+    "data_exfiltration": {
+      "total": 1,
+      "caught": 1
+    },
+    "malicious_code": {
+      "total": 5,
+      "caught": 5
+    }
+  },
+  "malicious_results": [
+    {
+      "name": "colourama",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "djago",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 90,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": [
+        "Looks like 'django' (distance 1)"
+      ]
+    },
+    {
+      "name": "reqeusts",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 66,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": [
+        "Looks like 'requests' (distance 2)"
+      ]
+    },
+    {
+      "name": "urllib4",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 54,
+      "p1_findings": [],
+      "p2_findings": [
+        "Looks like 'urllib3' (distance 1)"
+      ]
+    },
+    {
+      "name": "boto",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 54,
+      "p1_findings": [],
+      "p2_findings": [
+        "Looks like 'boto3' (distance 1)"
+      ]
+    },
+    {
+      "name": "scikit-learn0",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 90,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": [
+        "Looks like 'scikit-learn' (distance 1)"
+      ]
+    },
+    {
+      "name": "nmap-python",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "flasck",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 90,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": [
+        "Looks like 'flask' (distance 1)",
+        "Looks like 'black' (distance 2)"
+      ]
+    },
+    {
+      "name": "panda",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 54,
+      "p1_findings": [],
+      "p2_findings": [
+        "Looks like 'pandas' (distance 1)"
+      ]
+    },
+    {
+      "name": "mongdb",
+      "attack_type": "typosquatting",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "aws-creds",
+      "attack_type": "dependency_confusion",
+      "flagged": false,
+      "score": 0,
+      "p1_findings": [],
+      "p2_findings": []
+    },
+    {
+      "name": "company-utils",
+      "attack_type": "dependency_confusion",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "ctx",
+      "attack_type": "credential_theft",
+      "flagged": true,
+      "score": 66,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": [
+        "Looks like 'six' (distance 2)"
+      ]
+    },
+    {
+      "name": "pygrata",
+      "attack_type": "credential_theft",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "loglib-modules",
+      "attack_type": "data_exfiltration",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "aioconsol",
+      "attack_type": "malicious_code",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "pptest",
+      "attack_type": "malicious_code",
+      "flagged": true,
+      "score": 90,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": [
+        "Looks like 'pytest' (distance 1)"
+      ]
+    },
+    {
+      "name": "ipboards",
+      "attack_type": "malicious_code",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "owlmoon",
+      "attack_type": "malicious_code",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    },
+    {
+      "name": "DiscordSafety",
+      "attack_type": "malicious_code",
+      "flagged": true,
+      "score": 36,
+      "p1_findings": [
+        "NOT FOUND on PyPI"
+      ],
+      "p2_findings": []
+    }
+  ],
+  "clean_results": [
+    {
+      "name": "requests",
+      "flagged": false,
+      "score": 0
+    },
+    {
+      "name": "flask",
+      "flagged": false,
+      "score": 0
+    },
+    {
+      "name": "django",
+      "flagged": false,
+      "score": 10
+    },
+    {
+      "name": "numpy",
+      "flagged": false,
+      "score": 10
+    },
+    {
+      "name": "pandas",
+      "flagged": false,
+      "score": 0
+    },
+    {
+      "name": "scipy",
+      "flagged": false,
+      "score": 10
+    },
+    {
+      "name": "matplotlib",
+      "flagged": false,
+      "score": 0
+    },
+    {
+      "name": "click",
+      "flagged": false,
+      "score": 10
+    },
+    {
+      "name": "pydantic",
+      "flagged": false,
+      "score": 0
+    },
+    {
+      "name": "fastapi",
+      "flagged": false,
+      "score": 10
+    },
+    {
+      "name": "pytest",
+      "flagged": false,
+      "score": 10
+    },
+    {
+      "name": "black",
+      "flagged": false,
+      "score": 0
+    },
+    {
+      "name": "rich",
+      "flagged": false,
+      "score": 0
+    },
+    {
+      "name": "tqdm",
+      "flagged": false,
+      "score": 10
+    },
+    {
+      "name": "boto3",
+      "flagged": false,
+      "score": 10
+    }
+  ]
+}
