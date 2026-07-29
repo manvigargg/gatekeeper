@@ -1,0 +1,1 @@
+web: cd phase8 && uvicorn main:app --host 0.0.0.0 --port $PORT
