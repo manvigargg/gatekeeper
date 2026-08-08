@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GateKeeper 🔒 — Supply Chain Attack Detector for CI/CD Pipelines</title>
+  <meta name="description" content="GateKeeper is an open-source Python supply chain security scanner. Detects typosquatting, malicious install scripts (AST analysis), and dependency confusion before production build.">
+  <meta name="keywords" content="supply chain security, python security, pypi scanner, typosquatting detector, ci cd security, slsa provenance, ast static analysis">
+  <meta property="og:title" content="GateKeeper — Python Supply Chain Attack Detector">
+  <meta property="og:description" content="Prevent SolarWinds, Codecov, and XZ Utils style supply chain attacks in your Python CI/CD pipelines.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="brand">
+        <div class="brand-icon">🔒</div>
+        <span>GateKeeper</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#scanner" class="nav-link">Scanner</a></li>
+        <li><a href="#architecture" class="nav-link">Architecture</a></li>
+        <li><a href="#cicd" class="nav-link">CI/CD Integration</a></li>
+        <li><a href="#attacks" class="nav-link">Attack Vectors</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span>SLSA Level 3 Ready</span>
+        </div>
+        <a href="https://github.com/manvigargg/gatekeeper" target="_blank" class="btn-github">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-tag">
+        <span>🛡️ Open Source Supply Chain Protection</span>
+      </div>
+      <h1 class="hero-title">
+        Stop Supply Chain Attacks <span>Before They Reach Production</span>
+      </h1>
+      <p class="hero-subtitle">
+        GateKeeper monitors Python dependencies for malicious install scripts, typosquatting, and metadata anomalies in your CI/CD pipelines — before <code>pip install</code> executes.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#scanner" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Test Live Scanner
+        </a>
+        <a href="#architecture" class="btn-secondary">
+          Explore Architecture
+        </a>
+      </div>
+
+      <!-- Key Metrics Row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-val emerald">95.0%</div>
+          <div class="stat-label">Detection Rate on Backstabber Dataset</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val cyan">0.0%</div>
+          <div class="stat-label">False Positive Rate</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">50+</div>
+          <div class="stat-label">Top PyPI Packages Indexed for Typosquatting</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">&lt; 300ms</div>
+          <div class="stat-label">Average Pipeline Latency Overhead</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Live Scanner Section -->
+  <section class="scanner-section" id="scanner">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Playground</span>
+        <h2 class="section-title">Live Dependency Scanner</h2>
+        <p class="section-desc">Paste your <code>requirements.txt</code> or test sample attack payloads against GateKeeper's multi-phase analysis engine.</p>
+      </div>
+
+      <div class="scanner-box">
+        <div class="scanner-header-bar">
+          <span class="presets-label">Load Preset Attack Vectors:</span>
+          <div class="preset-pills">
+            <button class="preset-btn active" data-preset="typosquat">⚠️ Typosquatting Attack</button>
+            <button class="preset-btn" data-preset="malicious">🚨 AST Payload (Exfiltration)</button>
+            <button class="preset-btn" data-preset="clean">✓ Clean Build</button>
+          </div>
+        </div>
+
+        <div class="scanner-grid">
+          <!-- Editor Input Area -->
+          <div class="editor-wrapper">
+            <div class="editor-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>requirements.txt / payload.py</span>
+            </div>
+            <textarea id="codeEditor" class="code-textarea" spellcheck="false"># Typosquatting attack vector demonstration
+reqeusts==2.31.0
+coloramaa==0.4.6
+urllib4==1.26.5
+flask==3.0.0
+django==4.2.0</textarea>
+
+            <div class="scanner-actions">
+              <button id="btnScan" class="btn-primary" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Run GateKeeper Scan
+              </button>
+            </div>
+          </div>
+
+          <!-- Report Output Panel -->
+          <div class="results-panel" id="resultsContainer">
+            <div class="results-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+              <p>Click "Run GateKeeper Scan" to analyze dependencies</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Section -->
+  <section class="architecture-section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Multi-Layered Security</span>
+        <h2 class="section-title">Detection Engine Architecture</h2>
+        <p class="section-desc">GateKeeper uses a phased defense-in-depth framework to catch zero-day supply chain threats.</p>
+      </div>
+
+      <div class="phase-grid">
+        <div class="phase-card">
+          <span class="phase-num">Phase 1 — Metadata Checker</span>
+          <h3>PyPI API & Anomaly Analysis</h3>
+          <p>Inspects package creation date, weekly download volume, author reputation, and homepage source code link validity.</p>
+          <div class="phase-tags">
+            <span class="tag">PyPI REST API</span>
+            <span class="tag">Metadata Heuristics</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 2 — Typosquatting Engine</span>
+          <h3>Levenshtein Edit-Distance</h3>
+          <p>Compares every requirement against the top 50 PyPI packages to catch subtle brand-jacking (e.g., <code>reqeusts</code> vs <code>requests</code>).</p>
+          <div class="phase-tags">
+            <span class="tag">Levenshtein Distance</span>
+            <span class="tag">Top 50 Packages</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 3 — Static AST Analysis</span>
+          <h3>Abstract Syntax Tree Scanner</h3>
+          <p>Parses <code>setup.py</code> into Python AST nodes to flag <code>exec()</code>, <code>eval()</code>, base64 payloads, subprocess calls, and credential exfiltration.</p>
+          <div class="phase-tags">
+            <span class="tag">Python AST</span>
+            <span class="tag">Static Analysis</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 4 — Docker Sandbox</span>
+          <h3>Isolated Container Runtime</h3>
+          <p>Executes installation inside an ephemeral container to monitor file modifications and outbound network calls during build time.</p>
+          <div class="phase-tags">
+            <span class="tag">Docker Container</span>
+            <span class="tag">Runtime Sandbox</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 5 — GitHub Action & SLSA</span>
+          <h3>CI/CD Build Gatekeeper</h3>
+          <p>Blocks automated pull requests if risk score exceeds policy thresholds and generates tamper-proof SLSA provenance reports.</p>
+          <div class="phase-tags">
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">SLSA Provenance</span>
+          </div>
+        </div>
+
+        <div class="phase-card">
+          <span class="phase-num">Phase 6 — Benchmarking</span>
+          <h3>Empirical Threat Intel</h3>
+          <p>Validated against the open-source <i>Backstabber's Knife Collection</i> dataset of real PyPI malware samples.</p>
+          <div class="phase-tags">
+            <span class="tag">95% Catch Rate</span>
+            <span class="tag">0% False Positives</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CI/CD & GitHub Action Section -->
+  <section class="cicd-section" id="cicd">
+    <div class="container">
+      <div class="action-container">
+        <div class="action-info">
+          <span class="section-tag">Zero Friction Setup</span>
+          <h3>Integrate into GitHub Actions in 60 Seconds</h3>
+          <p>Add GateKeeper to your repository's workflow to automatically scan every pull request before dependencies are installed into your build agents.</p>
+
+          <div style="display:flex; gap:20px; margin-bottom:24px;">
+            <div>
+              <label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Fail Build Severity:</label>
+              <select id="inputFailSeverity" class="preset-btn" style="padding:8px 12px; background:var(--bg-input);">
+                <option value="CRITICAL" selected>CRITICAL (Score >= 75)</option>
+                <option value="HIGH">HIGH (Score >= 45)</option>
+                <option value="MEDIUM">MEDIUM (Score >= 20)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:0.85rem; color:var(--text-muted); display:block; margin-bottom:6px;">Skip Docker Sandbox:</label>
+              <select id="inputSkipSandbox" class="preset-btn" style="padding:8px 12px; background:var(--bg-input);">
+                <option value="true" selected>True (Fastest, ~300ms)</option>
+                <option value="false">False (Full Container Sandbox)</option>
+              </select>
+            </div>
+          </div>
+
+          <ul class="feature-list">
+            <li class="feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Automated GitHub Security Report artifact generation</span>
+            </li>
+            <li class="feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Zero external agent installation required</span>
+            </li>
+            <li class="feature-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Configurable threshold blocking policies</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="code-box-wrapper">
+          <div class="code-box-header">
+            <span class="code-box-title">.github/workflows/security.yml</span>
+            <button id="btnCopyYaml" class="btn-copy">Copy YAML</button>
+          </div>
+          <pre id="yamlContent" class="code-content">name: Security Audit Pipeline
+on: [push, pull_request]
+
+jobs:
+  gatekeeper-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: GateKeeper Supply Chain Scan
+        uses: Swan/gatekeeper@v1
+        with:
+          requirements-file: 'requirements.txt'
+          fail-on-severity: 'CRITICAL'
+          skip-sandbox: 'true'</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real World Attacks Section -->
+  <section class="attacks-section" id="attacks">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Historical Context</span>
+        <h2 class="section-title">Real-World Attacks GateKeeper Prevents</h2>
+        <p class="section-desc">Supply chain attacks exploit the trust between developer tooling and package registries.</p>
+      </div>
+
+      <div class="attack-cards-grid">
+        <div class="attack-card">
+          <div class="attack-year">2020 • Build Pipeline Hijack</div>
+          <h3>SolarWinds Attack</h3>
+          <p>Attackers compromised build servers to inject malicious code into signed updates, affecting over 18,000 organizations worldwide.</p>
+        </div>
+
+        <div class="attack-card">
+          <div class="attack-year">2021 • Credential Exfiltration</div>
+          <h3>Codecov Bash Uploader</h3>
+          <p>A modified bash script inside a popular CI tool silently extracted environment variables and credentials to an attacker's C2 server.</p>
+        </div>
+
+        <div class="attack-card">
+          <div class="attack-year">2024 • Build Script Backdoor</div>
+          <h3>XZ Utils Backdoor</h3>
+          <p>A multi-year social engineering effort inserted obfuscated build script hooks into xz tarballs, targeting SSH authentication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          🔒 GateKeeper Security
+        </div>
+        <ul class="footer-links">
+          <li><a href="#scanner">Scanner</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#cicd">CI/CD Integration</a></li>
+          <li><a href="https://github.com/manvigargg/gatekeeper" target="_blank">GitHub Repository</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        GateKeeper is an open-source supply chain security project. Released under MIT License.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scanner.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

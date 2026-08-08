@@ -266,22 +266,22 @@
     {
       "name": "pandas",
       "flagged": false,
-      "score": 0
+      "score": 10
     },
     {
       "name": "scipy",
       "flagged": false,
-      "score": 10
+      "score": 0
     },
     {
       "name": "matplotlib",
       "flagged": false,
-      "score": 0
+      "score": 10
     },
     {
       "name": "click",
       "flagged": false,
-      "score": 10
+      "score": 0
     },
     {
       "name": "pydantic",
@@ -296,7 +296,7 @@
     {
       "name": "pytest",
       "flagged": false,
-      "score": 10
+      "score": 0
     },
     {
       "name": "black",

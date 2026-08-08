@@ -1,0 +1,25 @@
+{
+  "package": "requests",
+  "scanned_at": "2026-08-01T19:10:22.264615+00:00",
+  "install_success": true,
+  "risk_score": 80,
+  "severity": "CRITICAL",
+  "build_action": "BLOCK",
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 167.82.56.223:443"
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "network_call",
+      "description": "Outbound connection to 167.82.60.223:443"
+    }
+  ],
+  "raw_counts": {
+    "network_calls": 2,
+    "file_accesses": 0,
+    "subprocess_calls": 0
+  }
+}

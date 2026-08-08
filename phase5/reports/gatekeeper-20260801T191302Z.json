@@ -1,0 +1,90 @@
+{
+  "tool": "GateKeeper",
+  "version": "0.5.0",
+  "scanned_at": "2026-08-01T19:13:02.213626+00:00",
+  "results": [
+    {
+      "package": "requests",
+      "pinned_version": "2.31.0",
+      "scanned_at": "2026-08-01T19:12:45.594193+00:00",
+      "combined_score": 40,
+      "severity": "MEDIUM",
+      "build_action": "LOG",
+      "phases": {
+        "phase1": {
+          "score": 0,
+          "findings": []
+        },
+        "phase2": {
+          "score": 0,
+          "findings": []
+        },
+        "phase4": {
+          "score": 80,
+          "findings": [
+            "Outbound connection to 167.82.56.223:443",
+            "Outbound connection to 167.82.60.223:443"
+          ]
+        }
+      }
+    },
+    {
+      "package": "flask",
+      "pinned_version": "3.0.2",
+      "scanned_at": "2026-08-01T19:12:54.391144+00:00",
+      "combined_score": 40,
+      "severity": "MEDIUM",
+      "build_action": "LOG",
+      "phases": {
+        "phase1": {
+          "score": 0,
+          "findings": []
+        },
+        "phase2": {
+          "score": 0,
+          "findings": []
+        },
+        "phase4": {
+          "score": 80,
+          "findings": [
+            "Outbound connection to 167.82.56.223:443",
+            "Outbound connection to 167.82.60.223:443"
+          ]
+        }
+      }
+    },
+    {
+      "package": "numppy",
+      "pinned_version": "1.0.0",
+      "scanned_at": "2026-08-01T19:13:02.211440+00:00",
+      "combined_score": 45,
+      "severity": "HIGH",
+      "build_action": "WARN",
+      "phases": {
+        "phase1": {
+          "score": 90,
+          "findings": [
+            "Package 'numppy' NOT FOUND on PyPI"
+          ]
+        },
+        "phase2": {
+          "score": 90,
+          "findings": [
+            "Looks like 'numpy' (edit distance: 1)"
+          ]
+        },
+        "phase4": {
+          "score": 0,
+          "findings": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "clean": 0,
+    "medium": 2,
+    "high": 1,
+    "critical": 0
+  }
+}

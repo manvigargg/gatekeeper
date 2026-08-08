@@ -1,0 +1,90 @@
+{
+  "tool": "GateKeeper",
+  "version": "0.5.0",
+  "scanned_at": "2026-08-01T19:12:36.983886+00:00",
+  "results": [
+    {
+      "package": "requests",
+      "pinned_version": null,
+      "scanned_at": "2026-08-01T19:12:21.011302+00:00",
+      "combined_score": 40,
+      "severity": "MEDIUM",
+      "build_action": "LOG",
+      "phases": {
+        "phase1": {
+          "score": 0,
+          "findings": []
+        },
+        "phase2": {
+          "score": 0,
+          "findings": []
+        },
+        "phase4": {
+          "score": 80,
+          "findings": [
+            "Outbound connection to 167.82.56.223:443",
+            "Outbound connection to 167.82.60.223:443"
+          ]
+        }
+      }
+    },
+    {
+      "package": "flask",
+      "pinned_version": null,
+      "scanned_at": "2026-08-01T19:12:29.485832+00:00",
+      "combined_score": 40,
+      "severity": "MEDIUM",
+      "build_action": "LOG",
+      "phases": {
+        "phase1": {
+          "score": 0,
+          "findings": []
+        },
+        "phase2": {
+          "score": 0,
+          "findings": []
+        },
+        "phase4": {
+          "score": 80,
+          "findings": [
+            "Outbound connection to 167.82.56.223:443",
+            "Outbound connection to 167.82.60.223:443"
+          ]
+        }
+      }
+    },
+    {
+      "package": "numppy",
+      "pinned_version": null,
+      "scanned_at": "2026-08-01T19:12:36.982263+00:00",
+      "combined_score": 45,
+      "severity": "HIGH",
+      "build_action": "WARN",
+      "phases": {
+        "phase1": {
+          "score": 90,
+          "findings": [
+            "Package 'numppy' NOT FOUND on PyPI"
+          ]
+        },
+        "phase2": {
+          "score": 90,
+          "findings": [
+            "Looks like 'numpy' (edit distance: 1)"
+          ]
+        },
+        "phase4": {
+          "score": 0,
+          "findings": []
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "clean": 0,
+    "medium": 2,
+    "high": 1,
+    "critical": 0
+  }
+}
