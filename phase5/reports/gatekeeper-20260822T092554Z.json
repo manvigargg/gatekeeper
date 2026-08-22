@@ -1,0 +1,90 @@
+{
+  "tool": "GateKeeper",
+  "version": "0.5.0",
+  "scanned_at": "2026-08-22T09:25:54.567247+00:00",
+  "results": [
+    {
+      "package": "requests",
+      "pinned_version": null,
+      "scanned_at": "2026-08-22T09:25:50.692186+00:00",
+      "combined_score": 0,
+      "severity": "CLEAN",
+      "build_action": "PASS",
+      "phases": {
+        "phase1": {
+          "score": 0,
+          "findings": []
+        },
+        "phase2": {
+          "score": 0,
+          "findings": []
+        },
+        "phase4": {
+          "score": 0,
+          "findings": [
+            "[skipped] Docker not available"
+          ]
+        }
+      }
+    },
+    {
+      "package": "flask",
+      "pinned_version": null,
+      "scanned_at": "2026-08-22T09:25:52.781501+00:00",
+      "combined_score": 0,
+      "severity": "CLEAN",
+      "build_action": "PASS",
+      "phases": {
+        "phase1": {
+          "score": 0,
+          "findings": []
+        },
+        "phase2": {
+          "score": 0,
+          "findings": []
+        },
+        "phase4": {
+          "score": 0,
+          "findings": [
+            "[skipped] Docker not available"
+          ]
+        }
+      }
+    },
+    {
+      "package": "numppy",
+      "pinned_version": null,
+      "scanned_at": "2026-08-22T09:25:54.564492+00:00",
+      "combined_score": 45,
+      "severity": "HIGH",
+      "build_action": "WARN",
+      "phases": {
+        "phase1": {
+          "score": 90,
+          "findings": [
+            "Package 'numppy' NOT FOUND on PyPI"
+          ]
+        },
+        "phase2": {
+          "score": 90,
+          "findings": [
+            "Looks like 'numpy' (edit distance: 1)"
+          ]
+        },
+        "phase4": {
+          "score": 0,
+          "findings": [
+            "[skipped] Docker not available"
+          ]
+        }
+      }
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "clean": 2,
+    "medium": 0,
+    "high": 1,
+    "critical": 0
+  }
+}
